@@ -31,9 +31,12 @@ def ans(n):
     return (
         6 * 10 ** (n - 1)
         + 6 * n * (10 ** (n - 1) - 1) / 9
-        - ((n - 2) * 10 ** (n - 1) - ((10 ** (n - 1) - 1) / 9 - 1)) / 9 * 6
+        - 6 * ((n - 2) * 10 ** (n - 1) - ((10 ** (n - 1) - 1) / 9 - 1)) / 9
     )
 
 
-for i in range(1, 10):
-    print(math.isclose(S(i), ans(i)))
+allCorrect = True
+for i in range(1, 100):
+    if not math.isclose(S(i), ans(i)):
+        allCorrect = False
+print(allCorrect)
